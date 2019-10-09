@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser'
 
-import {getUserTweets, getHTML} from './lib/scraper';
+import {runScraper} from './lib/scraper';
 
 const app = express()
   .use(bodyParser.urlencoded({extended: true}))
@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 
 app.route('/user_scraper')
   .post(async function (req, res, next) {
-
+   console.log(runScraper(req.body.handle));
   });
 
 app.listen(PORT, () => console.log(`TweetScraper listening on port ${PORT}!`));
