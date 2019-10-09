@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 });
 app.route('/user_scraper')
   .post(async function (req, res, next) {
-    let product = await getUserTweets('christisraisin')
+    let product = await getUserTweets('req.body.handle')
     res.send('successful query', product)
   });
 
