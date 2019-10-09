@@ -15,8 +15,8 @@ app.get('/', (req, res) => {
 });
 app.route('/user_scraper')
   .post(async function (req, res, next) {
-    let product = await getUserTweets('req.body.handle')
-    res.send('successful query', product)
+    let product = await getUserTweets(req.body.handle)
+    res.send({tweets: product})
   });
 
 app.listen(PORT, () => console.log(`TweetScraper listening on port ${PORT}!`));
